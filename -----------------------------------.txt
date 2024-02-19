@@ -1,0 +1,30 @@
+----------------------------------------FrayedTm--------------------------------------------
+
+1) init frontend and backend
+
+ for frontend -- npm create vite@latest
+ for  backend -- npm i
+
+2) Set routes in backend 
+
+
+LEARNING_1: for some reason zod for email, z.email() wont work but z.string().email() would
+LEARNING_2: route.put() error most likely causd due to wrong inputs entered
+LEARNING_3: import properly
+LEARNING_4: when sending data, ensure u stringify body and use applicaiton/json in content-type of headers
+
+
+NEW_LEARNING_1:join databases in mongoose
+jwt workflow:
+
+- use put some data and use jwt.sign to create the token by passing the userID {this is integral part of jwt for every token created, unique one for every one}, assign the _id to this userID 
+- while verifying pass token and secretKey, the decoded token will contain the same userID as given earlier.
+
+    var token=jwt.sign({userID:getUser.id},secretKey)
+eg  const decodedToken = jwt.verify(token,secretKey); 
+set req.id=decodeToken.userID
+now every subsequent requests can be authorized.
+
+- for firstLogin --> signin return the token, take that token and set in headers of every subsequent requests
+
+NEW_LEARNING_2: configure tailwind.config.js file when rendering everything.
